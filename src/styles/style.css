@@ -1,0 +1,79 @@
+/* -------------------------------------------------------------- Banners -------------------------------------------------------------- */
+.banner-part .main-content table tr td:first-child,
+.product-part .main-content table tr td:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-part .main-content table .edit-icon,
+.banner-part .main-content table .delete-icon,
+.add-banner-model .modal-header .close-icon,
+.product-part .main-content table .edit-icon,
+.category-part .main-content table .edit-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.banner-part .main-content table th,
+.category-part .main-content table th,
+.product-part .main-content table th {
+  text-align: center;
+  font-size: 1.2rem;
+  width: 100px !important;
+  height: 60px;
+}
+
+.banner-part .main-content table .banner-active-text,
+.category-part .main-content table .banner-inactive-text,
+.product-part .main-content table .banner-inactive-text {
+  font-size: 1rem;
+}
+
+.banner-part .main-content table tr td:not(:first-child),
+.category-part .main-content table tr td,
+.product-part .main-content table tr td:not(:first-child) {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.banner-part .main-content table tr td:first-child img {
+  width: 150px !important;
+  height: 100%;
+}
+
+.banner-part .main-content .add-banner-btn-part,
+.category-part .main-content .add-category-btn-part,
+.product-part .main-content .add-category-btn-part {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 2rem 0rem;
+}
+
+.banner-part .main-content .add-banner-btn-part .add-banner-btn,
+.category-part .main-content .add-category-btn-part .add-banner-btn,
+.product-part .main-content .add-category-btn-part .add-banner-btn {
+  font-size: 1.2rem;
+}
+
+.add-banner-model .modal-header .modal-title {
+  font-size: 1.6rem;
+}
+
+.add-banner-model .modal-body label {
+  font-size: 0.9rem;
+}
+
+.add-banner-model .modal-body .card {
+  box-shadow: none;
+}
+
+.add-banner-model .modal-body .card .card-body {
+  padding: 0rem;
+}
+
+.user-part .main-content table tr td:first-child img {
+  width: 100px !important;
+  height: 100%;
+}
