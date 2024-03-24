@@ -39,7 +39,17 @@ function Sidebar() {
                         </li>
                         <li className={`sidebar-item ${pathname == "/user" ? "active" : ""}`}>
                             <a href="/user" className="sidebar-link">
-                                <span>User</span>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li className={`sidebar-item ${pathname == "/order" ? "active" : ""}`}>
+                            <a href="/order" className="sidebar-link">
+                                <span>Orders</span>
+                            </a>
+                        </li>
+                        <li className={`sidebar-item ${pathname == "/payment" ? "active" : ""}`}>
+                            <a href="/payment" className="sidebar-link">
+                                <span>Payments</span>
                             </a>
                         </li>
                     </ul>

@@ -77,3 +77,11 @@
   width: 100px !important;
   height: 100%;
 }
+
+.payment-part .payment-table .ant-table-tbody .ant-table-cell:first-child {
+  height: 82px;
+}
+
+.order-part .order-table .ant-table-tbody .ant-table-cell:first-child {
+  height: 83px;
+}
