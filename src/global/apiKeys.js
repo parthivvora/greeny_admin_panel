@@ -1,4 +1,5 @@
-const BASE_URI = "http://localhost:7000/api/";
+// const BASE_URI = "http://localhost:7000/api/";
+const BASE_URI = "https://greeny-backend.vercel.app/api/";
 
 const apiKeys = {
   login: `${BASE_URI}admin/login`,

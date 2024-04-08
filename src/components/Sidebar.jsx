@@ -52,6 +52,11 @@ function Sidebar() {
                                 <span>Payments</span>
                             </a>
                         </li>
+                        <li className={`sidebar-item ${pathname == "/order" ? "active" : ""}`}>
+                            <a href="/order" className="sidebar-link">
+                                <span>Orders</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <button className="sidebar-toggler btn x"><i data-feather="x" /></button>

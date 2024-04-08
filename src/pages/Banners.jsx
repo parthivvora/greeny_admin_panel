@@ -38,7 +38,7 @@ function Banners() {
 
     // Post banner data
     const bannerImage = useRef()
-    const getBannnerDetails = (e) => {
+    const getBannerDetails = (e) => {
         setAddBannerData({ ...addBannerData, [e.target.name]: e.target.value })
     }
 
@@ -206,13 +206,13 @@ function Banners() {
                                                                 <div className="col-12">
                                                                     <div className="form-group">
                                                                         <label htmlFor="first-name-vertical">title</label>
-                                                                        <input type="text" id="first-name-vertical" className="form-control" name="title" placeholder="Title" onChange={getBannnerDetails} />
+                                                                        <input type="text" id="first-name-vertical" className="form-control" name="title" placeholder="Title" onChange={getBannerDetails} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12">
                                                                     <div className="form-group">
                                                                         <label htmlFor="email-id-vertical">description</label>
-                                                                        <input type="text" id="email-id-vertical" className="form-control" name="description" placeholder="Description" onChange={getBannnerDetails} />
+                                                                        <input type="text" id="email-id-vertical" className="form-control" name="description" placeholder="Description" onChange={getBannerDetails} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12">
@@ -262,13 +262,13 @@ function Banners() {
                                                                 <div className="col-12">
                                                                     <div className="form-group">
                                                                         <label htmlFor="first-name-vertical">title</label>
-                                                                        <input type="text" id="first-name-vertical" className="form-control" name="title" value={addBannerData.title} placeholder="Title" onChange={getBannnerDetails} />
+                                                                        <input type="text" id="first-name-vertical" className="form-control" name="title" value={addBannerData.title} placeholder="Title" onChange={getBannerDetails} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12">
                                                                     <div className="form-group">
                                                                         <label htmlFor="email-id-vertical">description</label>
-                                                                        <input type="text" id="email-id-vertical" className="form-control" name="description" value={addBannerData.description} placeholder="Description" onChange={getBannnerDetails} />
+                                                                        <input type="text" id="email-id-vertical" className="form-control" name="description" value={addBannerData.description} placeholder="Description" onChange={getBannerDetails} />
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-12">
