@@ -9,7 +9,6 @@ const httpRequest = axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
-  withCredentials: true,
 });
 
 export const adminLogin = (data) => httpRequest.post(apiKeys.login, data);
