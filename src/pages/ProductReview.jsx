@@ -2,21 +2,22 @@ import "../styles/style.css";
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { Navbar } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Badge from "react-bootstrap/Badge";
 import { Table } from "antd";
 import { errorHandler, successHandler } from "../global/responseHandler";
-import { getAllOrders, updateOrderDeliveryStatus } from "../global/apiCall";
+import {
+  deleteProductReviewByReviewId,
+  getAllProductsReviews,
+} from "../global/apiCall";
 import { ToastContainer } from "react-toastify";
 
-function Orders() {
-  const [orderData, setOrderData] = useState([]);
+function ProductReview() {
+  const [productReviewData, setProductReviewData] = useState([]);
 
-  // Get all orders
-  async function getAllOrdersData() {
-    await getAllOrders()
+  // Get all product reviews
+  async function getAllProductReviewsData() {
+    await getAllProductsReviews()
       .then((response) => {
-        setOrderData(response.data.orderData);
+        setProductReviewData(response.data.productsReviews);
       })
       .catch((error) => {
         errorHandler(error.response.data.message);
@@ -30,11 +31,11 @@ function Orders() {
     return istTime;
   };
 
-  // Update order delivery status
-  const updateDeliveryStatus = async (orderId) => {
-    await updateOrderDeliveryStatus(orderId)
+  // Update product review
+  const deleteProductReview = async (reviewId) => {
+    await deleteProductReviewByReviewId(reviewId)
       .then((response) => {
-        getAllOrdersData();
+        getAllProductReviewsData();
         successHandler(response.data.message);
       })
       .catch((error) => {
@@ -45,56 +46,57 @@ function Orders() {
   // Table data
   const columns = [
     {
-      title: "Order Id",
-      dataIndex: "_id",
-      key: "_id",
+      title: "Product Id",
+      dataIndex: "productId",
+      key: "productId",
     },
     {
-      title: "User",
-      dataIndex: ["userDetails", "name"],
+      title: "User Name",
+      dataIndex: "name",
       key: "name",
     },
     {
-      title: "Order Date",
-      key: "orderDate",
-      render: (data) => convertUTCToIST(data.orderDate),
+      title: "User Email",
+      dataIndex: "email",
+      key: "email",
     },
     {
-      title: "Delivery Status",
-      dataIndex: "deliveryStatus",
-      key: "deliveryStatus",
+      title: "Review Message",
+      key: "message",
+      render: (data) => {
+        return data.message.substring(0, 20) + "...";
+      },
     },
     {
-      title: "Order Status",
-      key: "orderStatus",
-      render: (data) =>
-        data.orderStatus === "Success" ? (
-          <Badge bg="success"> {data.orderStatus} </Badge>
-        ) : (
-          <Badge bg="danger"> {data.orderStatus} </Badge>
-        ),
+      title: "Review Date",
+      key: "createdAt",
+      render: (data) => convertUTCToIST(data.createdAt),
     },
     {
       title: "Action",
       key: "action",
       render: (data) => (
-        <Button
-          variant="primary"
-          disabled={data.deliveryStatus === "Pending" ? false : true}
-          onClick={() => updateDeliveryStatus(data._id)}
-        >
-          Confirm
-        </Button>
+        <div className="form-check form-switch p-0" key={data._id}>
+          <input
+            className="form-check-input mx-auto"
+            type="checkbox"
+            id="flexSwitchCheckChecked"
+            checked={!data.isDeleted ? false : true}
+            disabled={!data.isDeleted ? false : true}
+            style={{ cursor: "pointer" }}
+            onClick={() => deleteProductReview(data._id)}
+          />
+        </div>
       ),
     },
   ];
 
   useEffect(() => {
-    getAllOrdersData();
+    getAllProductReviewsData();
   }, []);
 
   return (
-    <div id="app" className="order-part banner-part">
+    <div id="app" className="order-part banner-part product-review-part">
       <ToastContainer />
       <Sidebar />
       <div id="main">
@@ -103,7 +105,7 @@ function Orders() {
           <div className="page-title">
             <div className="row">
               <div className="col-12 col-md-6 order-md-1 order-last">
-                <h3>Orders</h3>
+                <h3>Product Reviews</h3>
               </div>
               <div className="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" className="breadcrumb-header">
@@ -112,15 +114,15 @@ function Orders() {
                       <a href="/">Dashboard</a>
                     </li>
                     <li className="breadcrumb-item active" aria-current="page">
-                      Orders
+                      Product Reviews
                     </li>
                   </ol>
                 </nav>
               </div>
             </div>
           </div>
-          <section className="section order-table">
-            <Table columns={columns} dataSource={orderData} bordered />
+          <section className="section product-review-table">
+            <Table columns={columns} dataSource={productReviewData} bordered />
           </section>
         </div>
       </div>
@@ -128,4 +130,4 @@ function Orders() {
   );
 }
 
-export default Orders;
+export default ProductReview;

@@ -8,6 +8,8 @@ import Brands from './pages/Brands';
 import User from './pages/User';
 import Orders from './pages/Orders';
 import Payment from './pages/Payment';
+import ProductReview from './pages/ProductReview';
+import BlogComment from './pages/BlogComment';
 
 function App() {
   const adminToken = sessionStorage.getItem('adminToken');
@@ -25,7 +27,9 @@ function App() {
                 <Route path='/brands' element={<Brands />} />
                 <Route path='/user' element={<User />} />
                 <Route path='/order' element={<Orders />} />
+                <Route path='/product-review' element={<ProductReview />} />
                 <Route path='/payment' element={<Payment />} />
+                <Route path='/blog-comments' element={<BlogComment />} />
               </>
             ) : (
               <Route path='/' element={<Login />} />

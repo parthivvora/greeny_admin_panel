@@ -85,3 +85,25 @@
 .order-part .order-table .ant-table-tbody .ant-table-cell:first-child {
   height: 83px;
 }
+
+.product-review-part
+  .product-review-table
+  .ant-table-tbody
+  .ant-table-cell:first-child {
+  height: 82px;
+}
+
+.product-review-part
+  .main-content
+  .product-review-table
+  .form-switch
+  .form-check-input {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.product-review-part .main-content .product-review-table .form-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

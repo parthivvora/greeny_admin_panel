@@ -1,5 +1,5 @@
-// const BASE_URI = "http://localhost:7000/api/";
-const BASE_URI = "https://greeny-backend.vercel.app/api/";
+const BASE_URI = "http://localhost:7000/api/";
+// const BASE_URI = "https://greeny-backend.vercel.app/api/";
 
 const apiKeys = {
   login: `${BASE_URI}admin/login`,
@@ -34,6 +34,14 @@ const apiKeys = {
 
   // Payment
   getAllPayments: `${BASE_URI}user/getAllPayments`,
+
+  // Products Review
+  getAllProductsReviews: `${BASE_URI}admin/getAllProductsReviews`,
+  deleteProductReview: `${BASE_URI}admin/deleteProductReview/`,
+
+  // Blog Comments
+  getAllCommentData: `${BASE_URI}user/getAllCommentData`,
+  deleteComment: `${BASE_URI}user/deleteComment/`,
 };
 
 export { BASE_URI, apiKeys };

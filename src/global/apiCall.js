@@ -64,3 +64,11 @@ export const updateOrderDeliveryStatus = (orderId) =>
 
 // Payment
 export const getAllPayment = () => httpRequest.get(apiKeys.getAllPayments);
+
+// Product Review
+export const getAllProductsReviews = () => httpRequest.get(apiKeys.getAllProductsReviews);
+export const deleteProductReviewByReviewId = (reviewId) => httpRequest.delete(`${apiKeys.deleteProductReview}${reviewId}`);
+
+// Blog Comments
+export const getAllCommentData = () => httpRequest.get(apiKeys.getAllCommentData);
+export const deleteComment = (commentId) => httpRequest.delete(`${apiKeys.deleteComment}${commentId}`);
